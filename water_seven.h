@@ -21,6 +21,15 @@ const int MAX_GRID = 50;
 /// DO NOT modify any parameters in the functions.
 ////////////////////////////////////////////////////////////////////////
 
+bool isName(string s);
+int appear(char character[FIXED_CHARACTER][MAX_NAME], string s, int count);
+void modifyHp(int &t);
+void modifySkill(int &t);
+void modifyRepair(int &t);
+bool Perfect(int n);
+string Reverse(string s);
+bool isValid(string s);
+
 //Task 0
 bool readInput(
     const string &filename,
