@@ -90,20 +90,18 @@ int conflictSimulation(
         int LS = 0;
         int US = 0;
         int k = 0;
-        while(k < FIXED_CHARACTER && character[k][0] != '\0'){ //Check if a string is empty: '\0'
-            k++;
+//        while(k < FIXED_CHARACTER && character[k][0] != '\0'){ //Check if a string is empty: '\0'
+//            k++;
+//        }
+        for(int i = 0; i < FIXED_CHARACTER; i++){
+            if(!strcmp(character[i], "LUFFY")) LS = skill[i]; //NOTE: strcmp is String Comparision 
+            if(!strcmp(character[i], "USOPP")) US = skill[i];
         }
-        for(int i = 0; i < k; i++){
-            if(!strcmp(character[i], "LUFFY")){ //NOTE: strcmp is String Comparision
-                LS = skill[i];
-            }else if(!strcmp(character[i], "USOPP")){
-                US = skill[i];
-            }
-        }
-        int conflictIndex = LS - US + repairCost/100 + (500 - shipHP)/50;
+        double conflict = LS - US + repairCost / 100.0 + (500 - shipHP) / 50.0;
+        int conflictIndex = ceil(conflict);
         int n = 0;
         while(n < 10 && conflictIndex < 255){
-            switch(conflictIndex%6){
+            switch(((conflictIndex % 6) + 6) % 6){
                 case 0:
                     conflictIndex += 255;
                     break;
