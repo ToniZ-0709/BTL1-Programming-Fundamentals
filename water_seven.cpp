@@ -160,7 +160,7 @@ void resolveDuel(
             supportLevel[s] = skill[i];
             s++;
         }
-        int Us = skill[U] + conflictIndex/20 + repairCost/500;
+        int Us = skill[U] + (int)ceil(conflictIndex / 20.0) + (int)ceil(repairCost / 500.0);
         int res = Us - skill[L];
         if(res <= 0) return;
 
@@ -265,9 +265,7 @@ void resolveDuel(
         int finalCase = -1;
         int finalCost = INT_MAX;
         for(int i = 0; i < 5; i++){
-            if(arr[i] != 0 && arr[i] == finalCost){
-                finalCase = min(finalCase, i);
-            }else if(arr[i] != 0 && arr[i] < finalCost){
+            if(arr[i] != 0 && arr[i] < finalCost){
                 finalCase = i;
                 finalCost = arr[i];
             }
