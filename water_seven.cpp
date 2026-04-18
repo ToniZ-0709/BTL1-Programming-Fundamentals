@@ -160,7 +160,7 @@ void resolveDuel(
             supportLevel[s] = skill[i];
             s++;
         }
-        int Us = skill[U] + (int)ceil(conflictIndex / 20.0) + (int)ceil(repairCost / 500.0);
+        int Us = (int)ceil(skill[U] + conflictIndex / 20.0 + repairCost / 500.0);
         int res = Us - skill[L];
         if(res <= 0) return;
 
