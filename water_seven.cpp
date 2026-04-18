@@ -66,6 +66,7 @@ bool readInput(
 }
 
 bool Perfect(int n){
+    if(n <= 0) return false;
     int t = 0;
     while(n > 0){
         t += n%10;
