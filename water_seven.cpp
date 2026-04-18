@@ -81,7 +81,8 @@ bool Perfect(int n){
 
 // Task 1
 int damageEvaluation(int shipHP, int repairCost){
-    return shipHP < 455 && Perfect(shipHP) ? (repairCost % 2 == 0? repairCost + repairCost/2 : repairCost + (repairCost-1)/2 + 1):repairCost;
+    int res = shipHP < 455 && Perfect(shipHP) ? (repairCost % 2 == 0? repairCost + repairCost/2 : repairCost + (repairCost-1)/2 + 1):repairCost;
+    return (res > 3000) ? 3000 : res; 
 }
 
 // Task 2
